@@ -31,6 +31,7 @@ export default function Layout({ children }: LayoutProps) {
     { name: "Pacientes", href: "/patients", icon: Users },
     { name: "Citas Médicas", href: "/appointments", icon: Calendar },
     { name: "Recetas", href: "/prescriptions", icon: FileText },
+    { name: "Historial Médico", href: "/historial-medico", icon: FileText },
     { name: "Nuevo Paciente", href: "/nuevo-paciente", icon: Users },
     { name: "Programar Cita", href: "/programar-cita", icon: Calendar },
   ];
