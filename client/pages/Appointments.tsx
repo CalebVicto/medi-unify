@@ -21,6 +21,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Appointments() {
   const appointments = [
@@ -113,15 +114,15 @@ export default function Appointments() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case "Emergency":
+      case "Emergencia":
         return "text-red-600";
-      case "Check-up":
+      case "Revisión":
         return "text-medical-blue";
-      case "Follow-up":
+      case "Seguimiento":
         return "text-medical-brown";
-      case "Consultation":
+      case "Consulta":
         return "text-medical-slate";
-      case "Treatment":
+      case "Tratamiento":
         return "text-purple-600";
       default:
         return "text-gray-600";
@@ -135,16 +136,18 @@ export default function Appointments() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-3xl font-bold text-medical-slate">
-              Appointments
+              Citas Médicas
             </h1>
             <p className="text-gray-600 mt-1">
-              Manage and schedule patient appointments
+              Gestionar y programar citas de pacientes
             </p>
           </div>
-          <Button className="bg-medical-blue hover:bg-medical-navy mt-4 sm:mt-0">
-            <Plus className="w-4 h-4 mr-2" />
-            Schedule Appointment
-          </Button>
+          <Link to="/programar-cita">
+            <Button className="bg-medical-blue hover:bg-medical-navy mt-4 sm:mt-0">
+              <Plus className="w-4 h-4 mr-2" />
+              Programar Cita
+            </Button>
+          </Link>
         </div>
 
         {/* Date Navigation and Search */}
@@ -157,9 +160,9 @@ export default function Appointments() {
                 </Button>
                 <div className="text-center">
                   <h2 className="text-lg font-semibold text-medical-slate">
-                    Today
+                    Hoy
                   </h2>
-                  <p className="text-sm text-gray-600">January 16, 2024</p>
+                  <p className="text-sm text-gray-600">16 de Enero, 2024</p>
                 </div>
                 <Button variant="outline" size="sm">
                   <ChevronRight className="w-4 h-4" />
@@ -172,10 +175,7 @@ export default function Appointments() {
               <div className="flex space-x-4">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                  <Input
-                    placeholder="Search appointments..."
-                    className="pl-10"
-                  />
+                  <Input placeholder="Buscar citas..." className="pl-10" />
                 </div>
                 <Button
                   variant="outline"
@@ -193,31 +193,31 @@ export default function Appointments() {
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold text-medical-slate">24</div>
-              <p className="text-sm text-gray-600">Total Today</p>
+              <p className="text-sm text-gray-600">Total Hoy</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold text-green-600">18</div>
-              <p className="text-sm text-gray-600">Confirmed</p>
+              <p className="text-sm text-gray-600">Confirmadas</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold text-yellow-600">4</div>
-              <p className="text-sm text-gray-600">Pending</p>
+              <p className="text-sm text-gray-600">Pendientes</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold text-blue-600">1</div>
-              <p className="text-sm text-gray-600">In Progress</p>
+              <p className="text-sm text-gray-600">En Progreso</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold text-red-600">1</div>
-              <p className="text-sm text-gray-600">Urgent</p>
+              <p className="text-sm text-gray-600">Urgentes</p>
             </CardContent>
           </Card>
         </div>
@@ -227,10 +227,10 @@ export default function Appointments() {
           <CardHeader>
             <CardTitle className="text-medical-slate flex items-center">
               <Calendar className="w-5 h-5 mr-2" />
-              Today's Schedule
+              Agenda de Hoy
             </CardTitle>
             <CardDescription>
-              All appointments scheduled for today
+              Todas las citas programadas para hoy
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -240,9 +240,9 @@ export default function Appointments() {
                   key={appointment.id}
                   className="p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow bg-white"
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+                  <div className="space-y-4">
                     <div className="flex items-start space-x-4">
-                      <div className="flex flex-col items-center">
+                      <div className="flex flex-col items-center flex-shrink-0">
                         <div className="w-12 h-12 bg-medical-blue rounded-lg flex items-center justify-center">
                           <Clock className="w-6 h-6 text-white" />
                         </div>
@@ -250,29 +250,31 @@ export default function Appointments() {
                           {appointment.time}
                         </div>
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-3 mb-2">
-                          <h3 className="text-lg font-semibold text-medical-slate">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 mb-2">
+                          <h3 className="text-lg font-semibold text-medical-slate truncate">
                             {appointment.patient}
                           </h3>
                           <Badge className={getStatusColor(appointment.status)}>
                             {appointment.status}
                           </Badge>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
+                        <div className="grid grid-cols-1 gap-2 text-sm text-gray-600">
                           <div className="flex items-center space-x-2">
-                            <User className="w-4 h-4" />
+                            <User className="w-4 h-4 flex-shrink-0" />
                             <span className={getTypeColor(appointment.type)}>
                               {appointment.type}
                             </span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <Clock className="w-4 h-4" />
+                            <Clock className="w-4 h-4 flex-shrink-0" />
                             <span>{appointment.duration}</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <Phone className="w-4 h-4" />
-                            <span>{appointment.phone}</span>
+                            <Phone className="w-4 h-4 flex-shrink-0" />
+                            <span className="truncate">
+                              {appointment.phone}
+                            </span>
                           </div>
                         </div>
                         {appointment.notes && (
@@ -282,48 +284,50 @@ export default function Appointments() {
                         )}
                       </div>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
                       {appointment.status === "pending" && (
                         <>
                           <Button
                             size="sm"
-                            className="bg-green-600 hover:bg-green-700"
+                            className="bg-green-600 hover:bg-green-700 flex-1 sm:flex-none"
                           >
-                            Confirm
+                            Confirmar
                           </Button>
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white"
+                            className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white flex-1 sm:flex-none"
                           >
-                            Cancel
+                            Cancelar
                           </Button>
                         </>
                       )}
-                      {appointment.status === "confirmed" && (
+                      {appointment.status === "confirmada" && (
                         <Button
                           size="sm"
-                          className="bg-medical-blue hover:bg-medical-navy"
+                          className="bg-medical-blue hover:bg-medical-navy flex-1 sm:flex-none"
                         >
-                          Start Session
+                          Iniciar Sesión
                         </Button>
                       )}
                       {appointment.status === "in-progress" && (
                         <Button
                           size="sm"
-                          className="bg-green-600 hover:bg-green-700"
+                          className="bg-green-600 hover:bg-green-700 flex-1 sm:flex-none"
                         >
-                          Complete
+                          Completar
                         </Button>
                       )}
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white"
-                      >
-                        Reschedule
-                      </Button>
-                      <Button variant="ghost" size="sm">
+                      <Link to="/programar-cita">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white flex-1 sm:flex-none"
+                        >
+                          Reprogramar
+                        </Button>
+                      </Link>
+                      <Button variant="ghost" size="sm" className="sm:ml-auto">
                         <MoreHorizontal className="w-4 h-4" />
                       </Button>
                     </div>

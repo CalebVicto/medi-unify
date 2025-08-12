@@ -33,13 +33,13 @@ export default function Login() {
     setError("");
 
     if (!email || !password) {
-      setError("Please fill in all fields");
+      setError("Por favor complete todos los campos");
       return;
     }
 
     const success = await login(email, password);
     if (!success) {
-      setError("Invalid email or password");
+      setError("Correo electrónico o contraseña incorrectos");
     }
   };
 
@@ -81,7 +81,7 @@ export default function Login() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="doctor@medicare.com"
+                  placeholder="doctor@mediunify.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="border-gray-300 focus:border-medical-blue focus:ring-medical-blue"
@@ -112,10 +112,10 @@ export default function Login() {
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Signing In...
+                    Iniciando sesión...
                   </>
                 ) : (
-                  "Sign In"
+                  "Iniciar Sesión"
                 )}
               </Button>
             </form>
@@ -123,14 +123,14 @@ export default function Login() {
             {/* Demo Credentials */}
             <div className="mt-6 p-4 bg-gray-50 rounded-lg">
               <p className="text-sm font-medium text-gray-700 mb-2">
-                Demo Credentials:
+                Credenciales de Prueba:
               </p>
               <div className="text-sm text-gray-600 space-y-1">
                 <p>
-                  <strong>Email:</strong> doctor@medicare.com
+                  <strong>Correo:</strong> doctor@mediunify.com
                 </p>
                 <p>
-                  <strong>Password:</strong> password123
+                  <strong>Contraseña:</strong> password123
                 </p>
               </div>
             </div>

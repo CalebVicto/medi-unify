@@ -17,6 +17,7 @@ import {
   AlertTriangle,
   Plus,
   ChevronRight,
+  Activity,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -26,29 +27,29 @@ export default function Index() {
       id: 1,
       time: "09:00 AM",
       patient: "Emma Thompson",
-      type: "Check-up",
-      status: "confirmed",
+      type: "Revisión",
+      status: "confirmada",
     },
     {
       id: 2,
       time: "10:30 AM",
       patient: "Michael Davis",
-      type: "Follow-up",
-      status: "confirmed",
+      type: "Seguimiento",
+      status: "confirmada",
     },
     {
       id: 3,
       time: "02:00 PM",
       patient: "Sarah Wilson",
-      type: "Consultation",
-      status: "pending",
+      type: "Consulta",
+      status: "pendiente",
     },
     {
       id: 4,
       time: "03:30 PM",
       patient: "James Brown",
-      type: "Check-up",
-      status: "confirmed",
+      type: "Revisión",
+      status: "confirmada",
     },
   ];
 
@@ -56,23 +57,23 @@ export default function Index() {
     {
       id: 1,
       name: "Alice Johnson",
-      lastVisit: "2 days ago",
-      condition: "Hypertension",
-      priority: "medium",
+      lastVisit: "hace 2 días",
+      condition: "Hipertensión",
+      priority: "media",
     },
     {
       id: 2,
       name: "Robert Smith",
-      lastVisit: "1 week ago",
+      lastVisit: "hace 1 semana",
       condition: "Diabetes",
-      priority: "high",
+      priority: "alta",
     },
     {
       id: 3,
       name: "Maria Garcia",
-      lastVisit: "3 days ago",
-      condition: "Annual Check-up",
-      priority: "low",
+      lastVisit: "hace 3 días",
+      condition: "Chequeo Anual",
+      priority: "baja",
     },
   ];
 
@@ -113,11 +114,11 @@ export default function Index() {
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case "high":
+      case "alta":
         return "bg-red-100 text-red-800";
-      case "medium":
+      case "media":
         return "bg-yellow-100 text-yellow-800";
-      case "low":
+      case "baja":
         return "bg-green-100 text-green-800";
       default:
         return "bg-gray-100 text-gray-800";
@@ -126,11 +127,11 @@ export default function Index() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "confirmed":
+      case "confirmada":
         return "bg-green-100 text-green-800";
-      case "pending":
+      case "pendiente":
         return "bg-yellow-100 text-yellow-800";
-      case "cancelled":
+      case "cancelada":
         return "bg-red-100 text-red-800";
       default:
         return "bg-gray-100 text-gray-800";
@@ -143,23 +144,29 @@ export default function Index() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-medical-slate">Dashboard</h1>
+            <h1 className="text-3xl font-bold text-medical-slate">
+              Panel Principal
+            </h1>
             <p className="text-gray-600 mt-1">
-              Bienvenido de nuevo, Dr. Morales. Esto es lo que sucede hoy.
+              Bienvenido de nuevo, Dr. Morales. Resumen de actividades del día.
             </p>
           </div>
           <div className="flex space-x-3 mt-4 sm:mt-0">
-            <Button className="bg-medical-blue hover:bg-medical-navy">
-              <Plus className="w-4 h-4 mr-2" />
-              Nuevo Paciente
-            </Button>
-            <Button
-              variant="outline"
-              className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white"
-            >
-              <Calendar className="w-4 h-4 mr-2" />
-              Programar
-            </Button>
+            <Link to="/nuevo-paciente">
+              <Button className="bg-medical-blue hover:bg-medical-navy">
+                <Plus className="w-4 h-4 mr-2" />
+                Nuevo Paciente
+              </Button>
+            </Link>
+            <Link to="/programar-cita">
+              <Button
+                variant="outline"
+                className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white"
+              >
+                <Calendar className="w-4 h-4 mr-2" />
+                Programar Cita
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -256,7 +263,9 @@ export default function Index() {
                 <CardTitle className="text-medical-slate">
                   Pacientes recientes
                 </CardTitle>
-                <CardDescription>Últimas actividades de pacientes</CardDescription>
+                <CardDescription>
+                  Últimas actividades de pacientes
+                </CardDescription>
               </div>
               <Link to="/patients">
                 <Button
@@ -317,28 +326,43 @@ export default function Index() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Button
-                variant="outline"
-                className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white"
-              >
-                <Users className="w-6 h-6" />
-                <span>Agregar nuevo paciente</span>
-              </Button>
-              <Button
-                variant="outline"
-                className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white"
-              >
-                <Calendar className="w-6 h-6" />
-                <span>Programar cita</span>
-              </Button>
-              <Button
-                variant="outline"
-                className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-slate text-medical-slate hover:bg-medical-slate hover:text-white"
-              >
-                <FileText className="w-6 h-6" />
-                <span>Escribir receta</span>
-              </Button>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link to="/nuevo-paciente">
+                <Button
+                  variant="outline"
+                  className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white w-full"
+                >
+                  <Users className="w-6 h-6" />
+                  <span>Agregar nuevo paciente</span>
+                </Button>
+              </Link>
+              <Link to="/programar-cita">
+                <Button
+                  variant="outline"
+                  className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white w-full"
+                >
+                  <Calendar className="w-6 h-6" />
+                  <span>Programar cita</span>
+                </Button>
+              </Link>
+              <Link to="/prescriptions">
+                <Button
+                  variant="outline"
+                  className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-slate text-medical-slate hover:bg-medical-slate hover:text-white w-full"
+                >
+                  <FileText className="w-6 h-6" />
+                  <span>Escribir receta</span>
+                </Button>
+              </Link>
+              <Link to="/historial-medico">
+                <Button
+                  variant="outline"
+                  className="h-16 flex flex-col items-center justify-center space-y-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white w-full"
+                >
+                  <Activity className="w-6 h-6" />
+                  <span>Ver historial médico</span>
+                </Button>
+              </Link>
             </div>
           </CardContent>
         </Card>

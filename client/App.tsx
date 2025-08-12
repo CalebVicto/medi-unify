@@ -12,6 +12,9 @@ import Index from "./pages/Index";
 import Patients from "./pages/Patients";
 import Appointments from "./pages/Appointments";
 import Prescriptions from "./pages/Prescriptions";
+import NuevoPaciente from "./pages/NuevoPaciente";
+import ProgramarCita from "./pages/ProgramarCita";
+import HistorialMedico from "./pages/HistorialMedico";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -55,6 +58,30 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <Prescriptions />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/nuevo-paciente"
+              element={
+                <ProtectedRoute>
+                  <NuevoPaciente />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/programar-cita"
+              element={
+                <ProtectedRoute>
+                  <ProgramarCita />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/historial-medico"
+              element={
+                <ProtectedRoute>
+                  <HistorialMedico />
                 </ProtectedRoute>
               }
             />

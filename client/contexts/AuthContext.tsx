@@ -33,7 +33,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     // Check if user is already logged in (from localStorage)
-    const savedUser = localStorage.getItem("medicare_user");
+    const savedUser = localStorage.getItem("mediunify_user");
     if (savedUser) {
       setUser(JSON.parse(savedUser));
     }
@@ -47,17 +47,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     // Demo credentials - In real app, this would validate against backend
-    if (email === "doctor@medicare.com" && password === "password123") {
+    if (email === "doctor@mediunify.com" && password === "password123") {
       const userData: User = {
         id: "1",
-        name: "Dr. Sarah Johnson",
-        email: "doctor@medicare.com",
+        name: "Dr. Sarah Morales",
+        email: "doctor@mediunify.com",
         role: "doctor",
-        specialty: "General Practitioner",
+        specialty: "Médico General",
       };
 
       setUser(userData);
-      localStorage.setItem("medicare_user", JSON.stringify(userData));
+      localStorage.setItem("mediunify_user", JSON.stringify(userData));
       setIsLoading(false);
       return true;
     }
@@ -68,7 +68,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("medicare_user");
+    localStorage.removeItem("mediunify_user");
   };
 
   return (
