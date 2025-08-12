@@ -81,7 +81,7 @@ export default function Login() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="doctor@medicare.com"
+                  placeholder="doctor@mediunify.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="border-gray-300 focus:border-medical-blue focus:ring-medical-blue"
