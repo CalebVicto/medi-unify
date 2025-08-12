@@ -250,20 +250,24 @@ export default function Patients() {
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white flex-1 sm:flex-none"
-                      >
-                        Ver registro
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white flex-1 sm:flex-none"
-                      >
-                        Programar
-                      </Button>
+                      <Link to="/historial-medico" className="flex-1 sm:flex-none">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white w-full"
+                        >
+                          Ver registro
+                        </Button>
+                      </Link>
+                      <Link to="/programar-cita" className="flex-1 sm:flex-none">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white w-full"
+                        >
+                          Programar
+                        </Button>
+                      </Link>
                       <Button variant="ghost" size="sm" className="sm:ml-auto">
                         <MoreHorizontal className="w-4 h-4" />
                       </Button>
