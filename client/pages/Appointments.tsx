@@ -240,9 +240,9 @@ export default function Appointments() {
                   key={appointment.id}
                   className="p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow bg-white"
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+                  <div className="space-y-4">
                     <div className="flex items-start space-x-4">
-                      <div className="flex flex-col items-center">
+                      <div className="flex flex-col items-center flex-shrink-0">
                         <div className="w-12 h-12 bg-medical-blue rounded-lg flex items-center justify-center">
                           <Clock className="w-6 h-6 text-white" />
                         </div>
@@ -250,29 +250,29 @@ export default function Appointments() {
                           {appointment.time}
                         </div>
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-3 mb-2">
-                          <h3 className="text-lg font-semibold text-medical-slate">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 mb-2">
+                          <h3 className="text-lg font-semibold text-medical-slate truncate">
                             {appointment.patient}
                           </h3>
                           <Badge className={getStatusColor(appointment.status)}>
                             {appointment.status}
                           </Badge>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
+                        <div className="grid grid-cols-1 gap-2 text-sm text-gray-600">
                           <div className="flex items-center space-x-2">
-                            <User className="w-4 h-4" />
+                            <User className="w-4 h-4 flex-shrink-0" />
                             <span className={getTypeColor(appointment.type)}>
                               {appointment.type}
                             </span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <Clock className="w-4 h-4" />
+                            <Clock className="w-4 h-4 flex-shrink-0" />
                             <span>{appointment.duration}</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <Phone className="w-4 h-4" />
-                            <span>{appointment.phone}</span>
+                            <Phone className="w-4 h-4 flex-shrink-0" />
+                            <span className="truncate">{appointment.phone}</span>
                           </div>
                         </div>
                         {appointment.notes && (
