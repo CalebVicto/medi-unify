@@ -113,15 +113,15 @@ export default function Appointments() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case "Emergency":
+      case "Emergencia":
         return "text-red-600";
-      case "Check-up":
+      case "Revisión":
         return "text-medical-blue";
-      case "Follow-up":
+      case "Seguimiento":
         return "text-medical-brown";
-      case "Consultation":
+      case "Consulta":
         return "text-medical-slate";
-      case "Treatment":
+      case "Tratamiento":
         return "text-purple-600";
       default:
         return "text-gray-600";
