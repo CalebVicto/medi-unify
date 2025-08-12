@@ -137,7 +137,7 @@ export default function Patients() {
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <Input
-                  placeholder="Search patients by name, phone, or condition..."
+                  placeholder="Buscar pacientes por nombre, teléfono o condición..."
                   className="pl-10"
                 />
               </div>
@@ -213,17 +213,17 @@ export default function Patients() {
                             {patient.name}
                           </h3>
                           <Badge className={getPriorityColor(patient.priority)}>
-                            {patient.priority} priority
+                            Prioridad {patient.priority === 'high' ? 'alta' : patient.priority === 'medium' ? 'media' : patient.priority === 'low' ? 'baja' : patient.priority}
                           </Badge>
                           <Badge className={getStatusColor(patient.status)}>
-                            {patient.status}
+                            {patient.status === 'active' ? 'Activo' : patient.status === 'inactive' ? 'Inactivo' : patient.status}
                           </Badge>
                         </div>
                         <p className="text-sm text-gray-600 mt-1">
                           {patient.age} años • {patient.gender} •{" "}
                           {patient.condition}
                         </p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3 text-sm text-gray-600">
+                        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 mt-3 text-sm text-gray-600">
                           <div className="flex items-center space-x-2">
                             <Phone className="w-4 h-4" />
                             <span>{patient.phone}</span>
