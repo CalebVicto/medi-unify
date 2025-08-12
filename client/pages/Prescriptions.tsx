@@ -647,16 +647,16 @@ export default function Prescriptions() {
                       )}
                     </div>
                     
-                    <div className="flex flex-col sm:flex-row lg:flex-col space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-0 lg:space-y-2">
-                      <Button variant="outline" size="sm" className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white">
+                    <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
+                      <Button variant="outline" size="sm" className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white flex-1 sm:flex-none">
                         <Printer className="w-4 h-4 mr-2" />
                         Imprimir
                       </Button>
-                      <Button variant="outline" size="sm" className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white">
+                      <Button variant="outline" size="sm" className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white flex-1 sm:flex-none">
                         <Download className="w-4 h-4 mr-2" />
                         Descargar
                       </Button>
-                      <Button variant="outline" size="sm" className="border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white">
+                      <Button variant="outline" size="sm" className="border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white flex-1 sm:flex-none">
                         <Edit className="w-4 h-4 mr-2" />
                         Editar
                       </Button>
