@@ -47,11 +47,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     // Demo credentials - In real app, this would validate against backend
-    if (email === "doctor@medicare.com" && password === "password123") {
+    if (email === "doctor@mediunify.com" && password === "password123") {
       const userData: User = {
         id: "1",
         name: "Dr. Sarah Morales",
-        email: "doctor@medicare.com",
+        email: "doctor@mediunify.com",
         role: "doctor",
         specialty: "Médico General",
       };
