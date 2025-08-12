@@ -19,6 +19,7 @@ import {
   MapPin,
   Calendar,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Patients() {
   const patients = [
