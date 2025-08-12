@@ -50,10 +50,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     if (email === "doctor@medicare.com" && password === "password123") {
       const userData: User = {
         id: "1",
-        name: "Dr. Sarah Johnson",
+        name: "Dr. Sarah Morales",
         email: "doctor@medicare.com",
         role: "doctor",
-        specialty: "General Practitioner",
+        specialty: "Médico General",
       };
 
       setUser(userData);
