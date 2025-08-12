@@ -33,7 +33,7 @@ import {
   Search,
   Filter,
   Download,
-  Print,
+  Printer,
   Edit,
   Calendar,
   Clock,
@@ -733,7 +733,7 @@ export default function HistorialMedico() {
                       </div>
                       <div className="flex space-x-2">
                         <Button variant="outline" size="sm">
-                          <Print className="w-4 h-4 mr-2" />
+                          <Printer className="w-4 h-4 mr-2" />
                           Imprimir
                         </Button>
                         <Button variant="outline" size="sm">
