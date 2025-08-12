@@ -26,29 +26,29 @@ export default function Index() {
       id: 1,
       time: "09:00 AM",
       patient: "Emma Thompson",
-      type: "Check-up",
-      status: "confirmed",
+      type: "Revisión",
+      status: "confirmada",
     },
     {
       id: 2,
       time: "10:30 AM",
       patient: "Michael Davis",
-      type: "Follow-up",
-      status: "confirmed",
+      type: "Seguimiento",
+      status: "confirmada",
     },
     {
       id: 3,
       time: "02:00 PM",
       patient: "Sarah Wilson",
-      type: "Consultation",
-      status: "pending",
+      type: "Consulta",
+      status: "pendiente",
     },
     {
       id: 4,
       time: "03:30 PM",
       patient: "James Brown",
-      type: "Check-up",
-      status: "confirmed",
+      type: "Revisión",
+      status: "confirmada",
     },
   ];
 
@@ -56,23 +56,23 @@ export default function Index() {
     {
       id: 1,
       name: "Alice Johnson",
-      lastVisit: "2 days ago",
-      condition: "Hypertension",
-      priority: "medium",
+      lastVisit: "hace 2 días",
+      condition: "Hipertensión",
+      priority: "media",
     },
     {
       id: 2,
       name: "Robert Smith",
-      lastVisit: "1 week ago",
+      lastVisit: "hace 1 semana",
       condition: "Diabetes",
-      priority: "high",
+      priority: "alta",
     },
     {
       id: 3,
       name: "Maria Garcia",
-      lastVisit: "3 days ago",
-      condition: "Annual Check-up",
-      priority: "low",
+      lastVisit: "hace 3 días",
+      condition: "Chequeo Anual",
+      priority: "baja",
     },
   ];
 
@@ -113,11 +113,11 @@ export default function Index() {
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case "high":
+      case "alta":
         return "bg-red-100 text-red-800";
-      case "medium":
+      case "media":
         return "bg-yellow-100 text-yellow-800";
-      case "low":
+      case "baja":
         return "bg-green-100 text-green-800";
       default:
         return "bg-gray-100 text-gray-800";
@@ -126,11 +126,11 @@ export default function Index() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "confirmed":
+      case "confirmada":
         return "bg-green-100 text-green-800";
-      case "pending":
+      case "pendiente":
         return "bg-yellow-100 text-yellow-800";
-      case "cancelled":
+      case "cancelada":
         return "bg-red-100 text-red-800";
       default:
         return "bg-gray-100 text-gray-800";
