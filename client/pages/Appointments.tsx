@@ -319,13 +319,15 @@ export default function Appointments() {
                           Completar
                         </Button>
                       )}
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white flex-1 sm:flex-none"
-                      >
-                        Reprogramar
-                      </Button>
+                      <Link to="/programar-cita">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white flex-1 sm:flex-none"
+                        >
+                          Reprogramar
+                        </Button>
+                      </Link>
                       <Button variant="ghost" size="sm" className="sm:ml-auto">
                         <MoreHorizontal className="w-4 h-4" />
                       </Button>
