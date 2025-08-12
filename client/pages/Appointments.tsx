@@ -135,15 +135,15 @@ export default function Appointments() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-3xl font-bold text-medical-slate">
-              Appointments
+              Citas Médicas
             </h1>
             <p className="text-gray-600 mt-1">
-              Manage and schedule patient appointments
+              Gestionar y programar citas de pacientes
             </p>
           </div>
           <Button className="bg-medical-blue hover:bg-medical-navy mt-4 sm:mt-0">
             <Plus className="w-4 h-4 mr-2" />
-            Schedule Appointment
+            Programar Cita
           </Button>
         </div>
 
@@ -157,9 +157,9 @@ export default function Appointments() {
                 </Button>
                 <div className="text-center">
                   <h2 className="text-lg font-semibold text-medical-slate">
-                    Today
+                    Hoy
                   </h2>
-                  <p className="text-sm text-gray-600">January 16, 2024</p>
+                  <p className="text-sm text-gray-600">16 de Enero, 2024</p>
                 </div>
                 <Button variant="outline" size="sm">
                   <ChevronRight className="w-4 h-4" />
@@ -173,7 +173,7 @@ export default function Appointments() {
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <Input
-                    placeholder="Search appointments..."
+                    placeholder="Buscar citas..."
                     className="pl-10"
                   />
                 </div>
@@ -193,31 +193,31 @@ export default function Appointments() {
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold text-medical-slate">24</div>
-              <p className="text-sm text-gray-600">Total Today</p>
+              <p className="text-sm text-gray-600">Total Hoy</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold text-green-600">18</div>
-              <p className="text-sm text-gray-600">Confirmed</p>
+              <p className="text-sm text-gray-600">Confirmadas</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold text-yellow-600">4</div>
-              <p className="text-sm text-gray-600">Pending</p>
+              <p className="text-sm text-gray-600">Pendientes</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold text-blue-600">1</div>
-              <p className="text-sm text-gray-600">In Progress</p>
+              <p className="text-sm text-gray-600">En Progreso</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-2xl font-bold text-red-600">1</div>
-              <p className="text-sm text-gray-600">Urgent</p>
+              <p className="text-sm text-gray-600">Urgentes</p>
             </CardContent>
           </Card>
         </div>
@@ -227,10 +227,10 @@ export default function Appointments() {
           <CardHeader>
             <CardTitle className="text-medical-slate flex items-center">
               <Calendar className="w-5 h-5 mr-2" />
-              Today's Schedule
+              Agenda de Hoy
             </CardTitle>
             <CardDescription>
-              All appointments scheduled for today
+              Todas las citas programadas para hoy
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -289,14 +289,14 @@ export default function Appointments() {
                             size="sm"
                             className="bg-green-600 hover:bg-green-700"
                           >
-                            Confirm
+                            Confirmar
                           </Button>
                           <Button
                             variant="outline"
                             size="sm"
                             className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white"
                           >
-                            Cancel
+                            Cancelar
                           </Button>
                         </>
                       )}
@@ -305,7 +305,7 @@ export default function Appointments() {
                           size="sm"
                           className="bg-medical-blue hover:bg-medical-navy"
                         >
-                          Start Session
+                          Iniciar Sesión
                         </Button>
                       )}
                       {appointment.status === "in-progress" && (
@@ -313,7 +313,7 @@ export default function Appointments() {
                           size="sm"
                           className="bg-green-600 hover:bg-green-700"
                         >
-                          Complete
+                          Completar
                         </Button>
                       )}
                       <Button
@@ -321,7 +321,7 @@ export default function Appointments() {
                         size="sm"
                         className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white"
                       >
-                        Reschedule
+                        Reprogramar
                       </Button>
                       <Button variant="ghost" size="sm">
                         <MoreHorizontal className="w-4 h-4" />
