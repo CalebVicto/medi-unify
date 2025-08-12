@@ -33,7 +33,7 @@ import {
   Search,
   Filter,
   Download,
-  Print,
+  Printer,
   Edit,
   Trash2,
   User,
@@ -646,7 +646,7 @@ export default function Prescriptions() {
                     
                     <div className="flex flex-col sm:flex-row lg:flex-col space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-0 lg:space-y-2">
                       <Button variant="outline" size="sm" className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white">
-                        <Print className="w-4 h-4 mr-2" />
+                        <Printer className="w-4 h-4 mr-2" />
                         Imprimir
                       </Button>
                       <Button variant="outline" size="sm" className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white">
