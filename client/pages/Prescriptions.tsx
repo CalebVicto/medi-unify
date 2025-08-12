@@ -616,15 +616,18 @@ export default function Prescriptions() {
                       <div className="space-y-2 mb-4">
                         <Label className="text-sm font-medium text-gray-700">Medicamentos:</Label>
                         {prescription.medicamentos.map((med, index) => (
-                          <div key={index} className="flex items-center space-x-2 text-sm bg-gray-50 p-2 rounded">
-                            <Pill className="w-4 h-4 text-medical-brown" />
-                            <span className="font-medium">{med.nombre}</span>
-                            <span>•</span>
-                            <span>{med.dosis}</span>
-                            <span>•</span>
-                            <span>{med.frecuencia}</span>
-                            <span>•</span>
-                            <span>{med.duracion}</span>
+                          <div key={index} className="bg-gray-50 p-3 rounded">
+                            <div className="flex items-start space-x-2 mb-2">
+                              <Pill className="w-4 h-4 text-medical-brown mt-0.5 flex-shrink-0" />
+                              <div className="flex-1 min-w-0">
+                                <span className="font-medium text-sm block">{med.nombre}</span>
+                                <div className="text-xs text-gray-600 mt-1 space-y-1">
+                                  <div>Dosis: {med.dosis}</div>
+                                  <div>Frecuencia: {med.frecuencia}</div>
+                                  <div>Duración: {med.duracion}</div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         ))}
                       </div>
