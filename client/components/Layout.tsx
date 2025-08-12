@@ -32,8 +32,6 @@ export default function Layout({ children }: LayoutProps) {
     { name: "Citas Médicas", href: "/appointments", icon: Calendar },
     { name: "Recetas", href: "/prescriptions", icon: FileText },
     { name: "Historial Médico", href: "/historial-medico", icon: FileText },
-    { name: "Nuevo Paciente", href: "/nuevo-paciente", icon: Users },
-    { name: "Programar Cita", href: "/programar-cita", icon: Calendar },
   ];
 
   const isActive = (href: string) => {
@@ -54,7 +52,7 @@ export default function Layout({ children }: LayoutProps) {
       {/* Sidebar */}
       <div
         className={cn(
-          "fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:relative lg:transform-none",
+          "fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:relative lg:transform-none lg:translate-x-0 flex flex-col",
           isSidebarOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
