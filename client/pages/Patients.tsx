@@ -124,10 +124,12 @@ export default function Patients() {
               Gestionar y ver todos los registros de pacientes
             </p>
           </div>
-          <Button className="bg-medical-blue hover:bg-medical-navy mt-4 sm:mt-0">
-            <Plus className="w-4 h-4 mr-2" />
-            Agregar nuevo paciente
-          </Button>
+          <Link to="/nuevo-paciente">
+            <Button className="bg-medical-blue hover:bg-medical-navy mt-4 sm:mt-0">
+              <Plus className="w-4 h-4 mr-2" />
+              Agregar nuevo paciente
+            </Button>
+          </Link>
         </div>
 
         {/* Search and Filters */}
