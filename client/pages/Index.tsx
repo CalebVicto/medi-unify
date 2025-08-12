@@ -17,6 +17,7 @@ import {
   AlertTriangle,
   Plus,
   ChevronRight,
+  Activity,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
