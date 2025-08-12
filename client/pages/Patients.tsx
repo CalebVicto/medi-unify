@@ -197,9 +197,9 @@ export default function Patients() {
                   key={patient.id}
                   className="p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow bg-white"
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+                  <div className="space-y-4">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-medical-beige rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-medical-beige rounded-full flex items-center justify-center flex-shrink-0">
                         <span className="text-lg font-medium text-medical-slate">
                           {patient.name
                             .split(" ")
@@ -207,61 +207,61 @@ export default function Patients() {
                             .join("")}
                         </span>
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-3">
-                          <h3 className="text-lg font-semibold text-medical-slate">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-col space-y-2 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-3">
+                          <h3 className="text-lg font-semibold text-medical-slate truncate">
                             {patient.name}
                           </h3>
-                          <Badge className={getPriorityColor(patient.priority)}>
-                            Prioridad {patient.priority === 'high' ? 'alta' : patient.priority === 'medium' ? 'media' : patient.priority === 'low' ? 'baja' : patient.priority}
-                          </Badge>
-                          <Badge className={getStatusColor(patient.status)}>
-                            {patient.status === 'active' ? 'Activo' : patient.status === 'inactive' ? 'Inactivo' : patient.status}
-                          </Badge>
+                          <div className="flex flex-wrap gap-2">
+                            <Badge className={getPriorityColor(patient.priority)}>
+                              Prioridad {patient.priority === 'high' ? 'alta' : patient.priority === 'medium' ? 'media' : patient.priority === 'low' ? 'baja' : patient.priority}
+                            </Badge>
+                            <Badge className={getStatusColor(patient.status)}>
+                              {patient.status === 'active' ? 'Activo' : patient.status === 'inactive' ? 'Inactivo' : patient.status}
+                            </Badge>
+                          </div>
                         </div>
                         <p className="text-sm text-gray-600 mt-1">
-                          {patient.age} años • {patient.gender} •{" "}
-                          {patient.condition}
+                          {patient.age} años • {patient.gender} • {patient.condition}
                         </p>
-                        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 mt-3 text-sm text-gray-600">
+                        <div className="grid grid-cols-1 gap-2 mt-3 text-sm text-gray-600">
                           <div className="flex items-center space-x-2">
-                            <Phone className="w-4 h-4" />
-                            <span>{patient.phone}</span>
+                            <Phone className="w-4 h-4 flex-shrink-0" />
+                            <span className="truncate">{patient.phone}</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <Mail className="w-4 h-4" />
-                            <span>{patient.email}</span>
+                            <Mail className="w-4 h-4 flex-shrink-0" />
+                            <span className="truncate">{patient.email}</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <MapPin className="w-4 h-4" />
-                            <span>{patient.address}</span>
+                            <MapPin className="w-4 h-4 flex-shrink-0" />
+                            <span className="truncate">{patient.address}</span>
                           </div>
-                        </div>
-                        <div className="flex items-center space-x-2 mt-2 text-sm text-gray-600">
-                          <Calendar className="w-4 h-4" />
-                          <span>
-                            Última visita:{" "}
-                            {new Date(patient.lastVisit).toLocaleDateString()}
-                          </span>
+                          <div className="flex items-center space-x-2">
+                            <Calendar className="w-4 h-4 flex-shrink-0" />
+                            <span className="truncate">
+                              Última visita: {new Date(patient.lastVisit).toLocaleDateString()}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
                       <Button
                         variant="outline"
                         size="sm"
-                        className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white"
+                        className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white flex-1 sm:flex-none"
                       >
                         Ver registro
                       </Button>
                       <Button
                         variant="outline"
                         size="sm"
-                        className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white"
+                        className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white flex-1 sm:flex-none"
                       >
                         Programar
                       </Button>
-                      <Button variant="ghost" size="sm">
+                      <Button variant="ghost" size="sm" className="sm:ml-auto">
                         <MoreHorizontal className="w-4 h-4" />
                       </Button>
                     </div>
