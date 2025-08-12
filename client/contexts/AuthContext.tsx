@@ -68,7 +68,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("medicare_user");
+    localStorage.removeItem("mediunify_user");
   };
 
   return (
