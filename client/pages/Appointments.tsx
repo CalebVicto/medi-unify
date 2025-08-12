@@ -141,10 +141,12 @@ export default function Appointments() {
               Gestionar y programar citas de pacientes
             </p>
           </div>
-          <Button className="bg-medical-blue hover:bg-medical-navy mt-4 sm:mt-0">
-            <Plus className="w-4 h-4 mr-2" />
-            Programar Cita
-          </Button>
+          <Link to="/programar-cita">
+            <Button className="bg-medical-blue hover:bg-medical-navy mt-4 sm:mt-0">
+              <Plus className="w-4 h-4 mr-2" />
+              Programar Cita
+            </Button>
+          </Link>
         </div>
 
         {/* Date Navigation and Search */}
