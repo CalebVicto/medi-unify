@@ -175,10 +175,7 @@ export default function Appointments() {
               <div className="flex space-x-4">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                  <Input
-                    placeholder="Buscar citas..."
-                    className="pl-10"
-                  />
+                  <Input placeholder="Buscar citas..." className="pl-10" />
                 </div>
                 <Button
                   variant="outline"
@@ -275,7 +272,9 @@ export default function Appointments() {
                           </div>
                           <div className="flex items-center space-x-2">
                             <Phone className="w-4 h-4 flex-shrink-0" />
-                            <span className="truncate">{appointment.phone}</span>
+                            <span className="truncate">
+                              {appointment.phone}
+                            </span>
                           </div>
                         </div>
                         {appointment.notes && (

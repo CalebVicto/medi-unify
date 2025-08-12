@@ -190,7 +190,8 @@ export default function Patients() {
               Registros de Pacientes
             </CardTitle>
             <CardDescription>
-              Una lista de todos los pacientes, incluyendo su información de contacto y estado médico
+              Una lista de todos los pacientes, incluyendo su información de
+              contacto y estado médico
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -216,16 +217,30 @@ export default function Patients() {
                             {patient.name}
                           </h3>
                           <div className="flex flex-wrap gap-2">
-                            <Badge className={getPriorityColor(patient.priority)}>
-                              Prioridad {patient.priority === 'high' ? 'alta' : patient.priority === 'medium' ? 'media' : patient.priority === 'low' ? 'baja' : patient.priority}
+                            <Badge
+                              className={getPriorityColor(patient.priority)}
+                            >
+                              Prioridad{" "}
+                              {patient.priority === "high"
+                                ? "alta"
+                                : patient.priority === "medium"
+                                  ? "media"
+                                  : patient.priority === "low"
+                                    ? "baja"
+                                    : patient.priority}
                             </Badge>
                             <Badge className={getStatusColor(patient.status)}>
-                              {patient.status === 'active' ? 'Activo' : patient.status === 'inactive' ? 'Inactivo' : patient.status}
+                              {patient.status === "active"
+                                ? "Activo"
+                                : patient.status === "inactive"
+                                  ? "Inactivo"
+                                  : patient.status}
                             </Badge>
                           </div>
                         </div>
                         <p className="text-sm text-gray-600 mt-1">
-                          {patient.age} años • {patient.gender} • {patient.condition}
+                          {patient.age} años • {patient.gender} •{" "}
+                          {patient.condition}
                         </p>
                         <div className="grid grid-cols-1 gap-2 mt-3 text-sm text-gray-600">
                           <div className="flex items-center space-x-2">
@@ -243,14 +258,18 @@ export default function Patients() {
                           <div className="flex items-center space-x-2">
                             <Calendar className="w-4 h-4 flex-shrink-0" />
                             <span className="truncate">
-                              Última visita: {new Date(patient.lastVisit).toLocaleDateString()}
+                              Última visita:{" "}
+                              {new Date(patient.lastVisit).toLocaleDateString()}
                             </span>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
-                      <Link to="/historial-medico" className="flex-1 sm:flex-none">
+                      <Link
+                        to="/historial-medico"
+                        className="flex-1 sm:flex-none"
+                      >
                         <Button
                           variant="outline"
                           size="sm"
@@ -259,7 +278,10 @@ export default function Patients() {
                           Ver registro
                         </Button>
                       </Link>
-                      <Link to="/programar-cita" className="flex-1 sm:flex-none">
+                      <Link
+                        to="/programar-cita"
+                        className="flex-1 sm:flex-none"
+                      >
                         <Button
                           variant="outline"
                           size="sm"

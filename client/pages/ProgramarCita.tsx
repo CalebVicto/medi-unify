@@ -54,8 +54,22 @@ export default function ProgramarCita() {
 
   // Horarios disponibles (ejemplo)
   const availableSlots = [
-    "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
-    "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"
+    "08:00",
+    "08:30",
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+    "17:00",
+    "17:30",
   ];
 
   // Citas existentes (ejemplo)
@@ -67,22 +81,47 @@ export default function ProgramarCita() {
 
   // Pacientes sugeridos (ejemplo)
   const suggestedPatients = [
-    { id: "1", name: "Emma Thompson", phone: "(555) 123-4567", email: "emma@email.com" },
-    { id: "2", name: "Michael Davis", phone: "(555) 234-5678", email: "michael@email.com" },
-    { id: "3", name: "Sarah Wilson", phone: "(555) 345-6789", email: "sarah@email.com" },
-    { id: "4", name: "James Brown", phone: "(555) 456-7890", email: "james@email.com" },
-    { id: "5", name: "Alice Johnson", phone: "(555) 567-8901", email: "alice@email.com" },
+    {
+      id: "1",
+      name: "Emma Thompson",
+      phone: "(555) 123-4567",
+      email: "emma@email.com",
+    },
+    {
+      id: "2",
+      name: "Michael Davis",
+      phone: "(555) 234-5678",
+      email: "michael@email.com",
+    },
+    {
+      id: "3",
+      name: "Sarah Wilson",
+      phone: "(555) 345-6789",
+      email: "sarah@email.com",
+    },
+    {
+      id: "4",
+      name: "James Brown",
+      phone: "(555) 456-7890",
+      email: "james@email.com",
+    },
+    {
+      id: "5",
+      name: "Alice Johnson",
+      phone: "(555) 567-8901",
+      email: "alice@email.com",
+    },
   ];
 
   const handleInputChange = (field: string, value: any) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   const handlePatientSelect = (patient: any) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       pacienteId: patient.id,
       pacienteNombre: patient.name,
@@ -93,10 +132,10 @@ export default function ProgramarCita() {
 
   const handleTimeSelect = (time: string) => {
     setSelectedTime(time);
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       horaCita: time,
-      fechaCita: selectedDate.toISOString().split('T')[0]
+      fechaCita: selectedDate.toISOString().split("T")[0],
     }));
     setViewMode("form");
   };
@@ -108,8 +147,10 @@ export default function ProgramarCita() {
   };
 
   const isTimeSlotTaken = (time: string) => {
-    const dateStr = selectedDate.toISOString().split('T')[0];
-    return existingAppointments.some(apt => apt.date === dateStr && apt.time === time);
+    const dateStr = selectedDate.toISOString().split("T")[0];
+    return existingAppointments.some(
+      (apt) => apt.date === dateStr && apt.time === time,
+    );
   };
 
   const getDaysInMonth = (date: Date) => {
@@ -125,49 +166,70 @@ export default function ProgramarCita() {
     const firstDay = getFirstDayOfMonth(selectedDate);
     const days = [];
     const today = new Date();
-    
+
     // Días vacíos al inicio
     for (let i = 0; i < firstDay; i++) {
       days.push(<div key={`empty-${i}`} className="h-12"></div>);
     }
-    
+
     // Días del mes
     for (let day = 1; day <= daysInMonth; day++) {
-      const dayDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), day);
+      const dayDate = new Date(
+        selectedDate.getFullYear(),
+        selectedDate.getMonth(),
+        day,
+      );
       const isToday = dayDate.toDateString() === today.toDateString();
       const isSelected = dayDate.toDateString() === selectedDate.toDateString();
       const isPast = dayDate < today;
-      
+
       days.push(
         <button
           key={day}
           onClick={() => setSelectedDate(dayDate)}
           disabled={isPast}
           className={`h-12 flex items-center justify-center rounded-lg text-sm font-medium transition-colors
-            ${isPast 
-              ? "text-gray-300 cursor-not-allowed" 
-              : isSelected 
-                ? "bg-medical-blue text-white" 
-                : isToday 
-                  ? "bg-medical-beige text-medical-slate border-2 border-medical-blue"
-                  : "hover:bg-gray-100 text-gray-700"
+            ${
+              isPast
+                ? "text-gray-300 cursor-not-allowed"
+                : isSelected
+                  ? "bg-medical-blue text-white"
+                  : isToday
+                    ? "bg-medical-beige text-medical-slate border-2 border-medical-blue"
+                    : "hover:bg-gray-100 text-gray-700"
             }`}
         >
           {day}
-        </button>
+        </button>,
       );
     }
-    
+
     return days;
   };
 
   const changeMonth = (direction: number) => {
-    setSelectedDate(new Date(selectedDate.getFullYear(), selectedDate.getMonth() + direction, 1));
+    setSelectedDate(
+      new Date(
+        selectedDate.getFullYear(),
+        selectedDate.getMonth() + direction,
+        1,
+      ),
+    );
   };
 
   const monthNames = [
-    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
   ];
 
   const dayNames = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
@@ -179,8 +241,8 @@ export default function ProgramarCita() {
           {/* Header */}
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="sm"
                 onClick={() => setViewMode("calendar")}
               >
@@ -192,7 +254,14 @@ export default function ProgramarCita() {
                   Programar Nueva Cita
                 </h1>
                 <p className="text-gray-600 mt-1">
-                  Complete los detalles de la cita para {selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} a las {selectedTime}
+                  Complete los detalles de la cita para{" "}
+                  {selectedDate.toLocaleDateString("es-ES", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}{" "}
+                  a las {selectedTime}
                 </p>
               </div>
             </div>
@@ -215,7 +284,9 @@ export default function ProgramarCita() {
                       id="fechaCita"
                       type="date"
                       value={formData.fechaCita}
-                      onChange={(e) => handleInputChange("fechaCita", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("fechaCita", e.target.value)
+                      }
                       required
                     />
                   </div>
@@ -225,13 +296,20 @@ export default function ProgramarCita() {
                       id="horaCita"
                       type="time"
                       value={formData.horaCita}
-                      onChange={(e) => handleInputChange("horaCita", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("horaCita", e.target.value)
+                      }
                       required
                     />
                   </div>
                   <div>
                     <Label htmlFor="duracion">Duración</Label>
-                    <Select value={formData.duracion} onValueChange={(value) => handleInputChange("duracion", value)}>
+                    <Select
+                      value={formData.duracion}
+                      onValueChange={(value) =>
+                        handleInputChange("duracion", value)
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue placeholder="Seleccionar duración" />
                       </SelectTrigger>
@@ -247,7 +325,12 @@ export default function ProgramarCita() {
                 </div>
                 <div>
                   <Label htmlFor="tipoCita">Tipo de Cita</Label>
-                  <Select value={formData.tipoCita} onValueChange={(value) => handleInputChange("tipoCita", value)}>
+                  <Select
+                    value={formData.tipoCita}
+                    onValueChange={(value) =>
+                      handleInputChange("tipoCita", value)
+                    }
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Seleccionar tipo de cita" />
                     </SelectTrigger>
@@ -266,7 +349,9 @@ export default function ProgramarCita() {
                   <Textarea
                     id="motivo"
                     value={formData.motivo}
-                    onChange={(e) => handleInputChange("motivo", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("motivo", e.target.value)
+                    }
                     placeholder="Describir el motivo de la consulta o síntomas"
                     rows={3}
                   />
@@ -292,12 +377,15 @@ export default function ProgramarCita() {
                   Información del Paciente
                 </CardTitle>
                 <CardDescription>
-                  Seleccione un paciente existente o agregue información de contacto
+                  Seleccione un paciente existente o agregue información de
+                  contacto
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <Label htmlFor="pacienteBuscar">Buscar Paciente Existente</Label>
+                  <Label htmlFor="pacienteBuscar">
+                    Buscar Paciente Existente
+                  </Label>
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                     <Input
@@ -307,7 +395,7 @@ export default function ProgramarCita() {
                     />
                   </div>
                 </div>
-                
+
                 {/* Lista de pacientes sugeridos */}
                 <div className="space-y-2">
                   <Label>Pacientes Recientes</Label>
@@ -317,18 +405,25 @@ export default function ProgramarCita() {
                         key={patient.id}
                         onClick={() => handlePatientSelect(patient)}
                         className={`p-3 border rounded-lg cursor-pointer transition-colors
-                          ${formData.pacienteId === patient.id 
-                            ? "border-medical-blue bg-medical-blue/5" 
-                            : "border-gray-200 hover:border-medical-blue hover:bg-gray-50"
+                          ${
+                            formData.pacienteId === patient.id
+                              ? "border-medical-blue bg-medical-blue/5"
+                              : "border-gray-200 hover:border-medical-blue hover:bg-gray-50"
                           }`}
                       >
                         <div className="flex justify-between items-start">
                           <div>
-                            <p className="font-medium text-medical-slate">{patient.name}</p>
-                            <p className="text-sm text-gray-600">{patient.phone} • {patient.email}</p>
+                            <p className="font-medium text-medical-slate">
+                              {patient.name}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              {patient.phone} • {patient.email}
+                            </p>
                           </div>
                           {formData.pacienteId === patient.id && (
-                            <Badge className="bg-medical-blue text-white">Seleccionado</Badge>
+                            <Badge className="bg-medical-blue text-white">
+                              Seleccionado
+                            </Badge>
                           )}
                         </div>
                       </div>
@@ -337,14 +432,18 @@ export default function ProgramarCita() {
                 </div>
 
                 <div className="border-t pt-4">
-                  <Label className="text-base font-medium">O complete la información manualmente</Label>
+                  <Label className="text-base font-medium">
+                    O complete la información manualmente
+                  </Label>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
                     <div>
                       <Label htmlFor="pacienteNombre">Nombre Completo</Label>
                       <Input
                         id="pacienteNombre"
                         value={formData.pacienteNombre}
-                        onChange={(e) => handleInputChange("pacienteNombre", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("pacienteNombre", e.target.value)
+                        }
                         placeholder="Nombre del paciente"
                       />
                     </div>
@@ -353,7 +452,9 @@ export default function ProgramarCita() {
                       <Input
                         id="pacienteTelefono"
                         value={formData.pacienteTelefono}
-                        onChange={(e) => handleInputChange("pacienteTelefono", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("pacienteTelefono", e.target.value)
+                        }
                         placeholder="(000) 000-0000"
                       />
                     </div>
@@ -364,7 +465,9 @@ export default function ProgramarCita() {
                       id="pacienteEmail"
                       type="email"
                       value={formData.pacienteEmail}
-                      onChange={(e) => handleInputChange("pacienteEmail", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("pacienteEmail", e.target.value)
+                      }
                       placeholder="correo@ejemplo.com"
                     />
                   </div>
@@ -374,14 +477,17 @@ export default function ProgramarCita() {
 
             {/* Botones de Acción */}
             <div className="flex justify-end space-x-4">
-              <Button 
-                type="button" 
+              <Button
+                type="button"
                 variant="outline"
                 onClick={() => setViewMode("calendar")}
               >
                 Cancelar
               </Button>
-              <Button type="submit" className="bg-medical-blue hover:bg-medical-navy">
+              <Button
+                type="submit"
+                className="bg-medical-blue hover:bg-medical-navy"
+              >
                 <Save className="w-4 h-4 mr-2" />
                 Programar Cita
               </Button>
@@ -422,13 +528,22 @@ export default function ProgramarCita() {
               <div className="flex items-center justify-between">
                 <CardTitle className="flex items-center text-medical-slate">
                   <Calendar className="w-5 h-5 mr-2" />
-                  {monthNames[selectedDate.getMonth()]} {selectedDate.getFullYear()}
+                  {monthNames[selectedDate.getMonth()]}{" "}
+                  {selectedDate.getFullYear()}
                 </CardTitle>
                 <div className="flex space-x-2">
-                  <Button variant="outline" size="sm" onClick={() => changeMonth(-1)}>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => changeMonth(-1)}
+                  >
                     <ChevronLeft className="w-4 h-4" />
                   </Button>
-                  <Button variant="outline" size="sm" onClick={() => changeMonth(1)}>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => changeMonth(1)}
+                  >
                     <ChevronRight className="w-4 h-4" />
                   </Button>
                 </div>
@@ -436,15 +551,16 @@ export default function ProgramarCita() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-7 gap-2 mb-4">
-                {dayNames.map(day => (
-                  <div key={day} className="h-8 flex items-center justify-center text-sm font-medium text-gray-600">
+                {dayNames.map((day) => (
+                  <div
+                    key={day}
+                    className="h-8 flex items-center justify-center text-sm font-medium text-gray-600"
+                  >
                     {day}
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-7 gap-2">
-                {renderCalendar()}
-              </div>
+              <div className="grid grid-cols-7 gap-2">{renderCalendar()}</div>
             </CardContent>
           </Card>
 
@@ -456,10 +572,10 @@ export default function ProgramarCita() {
                 Horarios Disponibles
               </CardTitle>
               <CardDescription>
-                {selectedDate.toLocaleDateString('es-ES', { 
-                  weekday: 'long', 
-                  day: 'numeric', 
-                  month: 'long' 
+                {selectedDate.toLocaleDateString("es-ES", {
+                  weekday: "long",
+                  day: "numeric",
+                  month: "long",
                 })}
               </CardDescription>
             </CardHeader>
@@ -472,8 +588,8 @@ export default function ProgramarCita() {
                       key={time}
                       variant={isTaken ? "secondary" : "outline"}
                       className={`w-full justify-start ${
-                        isTaken 
-                          ? "cursor-not-allowed opacity-50" 
+                        isTaken
+                          ? "cursor-not-allowed opacity-50"
                           : "hover:bg-medical-blue hover:text-white"
                       }`}
                       disabled={isTaken}
@@ -482,7 +598,9 @@ export default function ProgramarCita() {
                       <Clock className="w-4 h-4 mr-2" />
                       {time}
                       {isTaken && (
-                        <span className="ml-auto text-xs text-red-600">Ocupado</span>
+                        <span className="ml-auto text-xs text-red-600">
+                          Ocupado
+                        </span>
                       )}
                     </Button>
                   );
@@ -493,33 +611,46 @@ export default function ProgramarCita() {
         </div>
 
         {/* Existing Appointments for Selected Date */}
-        {existingAppointments.filter(apt => apt.date === selectedDate.toISOString().split('T')[0]).length > 0 && (
+        {existingAppointments.filter(
+          (apt) => apt.date === selectedDate.toISOString().split("T")[0],
+        ).length > 0 && (
           <Card>
             <CardHeader>
               <CardTitle className="text-medical-slate">
-                Citas Existentes - {selectedDate.toLocaleDateString('es-ES', { 
-                  weekday: 'long', 
-                  day: 'numeric', 
-                  month: 'long' 
+                Citas Existentes -{" "}
+                {selectedDate.toLocaleDateString("es-ES", {
+                  weekday: "long",
+                  day: "numeric",
+                  month: "long",
                 })}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
                 {existingAppointments
-                  .filter(apt => apt.date === selectedDate.toISOString().split('T')[0])
+                  .filter(
+                    (apt) =>
+                      apt.date === selectedDate.toISOString().split("T")[0],
+                  )
                   .map((apt, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                    >
                       <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 bg-medical-blue rounded-lg flex items-center justify-center">
                           <Clock className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <p className="font-medium text-medical-slate">{apt.patient}</p>
+                          <p className="font-medium text-medical-slate">
+                            {apt.patient}
+                          </p>
                           <p className="text-sm text-gray-600">{apt.time}</p>
                         </div>
                       </div>
-                      <Badge className="bg-green-100 text-green-800">Confirmada</Badge>
+                      <Badge className="bg-green-100 text-green-800">
+                        Confirmada
+                      </Badge>
                     </div>
                   ))}
               </div>

@@ -50,7 +50,7 @@ export default function Prescriptions() {
   const [newPrescription, setNewPrescription] = useState({
     pacienteId: "",
     pacienteNombre: "",
-    fecha: new Date().toISOString().split('T')[0],
+    fecha: new Date().toISOString().split("T")[0],
     diagnostico: "",
     medicamentos: [
       {
@@ -60,7 +60,7 @@ export default function Prescriptions() {
         duracion: "",
         viaAdministracion: "",
         instrucciones: "",
-      }
+      },
     ],
     indicacionesGenerales: "",
     proximaCita: "",
@@ -81,7 +81,7 @@ export default function Prescriptions() {
           frecuencia: "1 vez al día",
           duracion: "30 días",
           viaAdministracion: "Oral",
-          instrucciones: "Tomar por las mañanas con el desayuno"
+          instrucciones: "Tomar por las mañanas con el desayuno",
         },
         {
           nombre: "Amlodipino",
@@ -89,10 +89,11 @@ export default function Prescriptions() {
           frecuencia: "1 vez al día",
           duracion: "30 días",
           viaAdministracion: "Oral",
-          instrucciones: "Tomar por las noches"
-        }
+          instrucciones: "Tomar por las noches",
+        },
       ],
-      indicacionesGenerales: "Dieta baja en sodio, ejercicio regular, control de peso",
+      indicacionesGenerales:
+        "Dieta baja en sodio, ejercicio regular, control de peso",
       proximaCita: "2024-02-16",
       status: "active",
       dispensado: false,
@@ -110,10 +111,11 @@ export default function Prescriptions() {
           frecuencia: "2 veces al día",
           duracion: "90 días",
           viaAdministracion: "Oral",
-          instrucciones: "Tomar con las comidas principales"
-        }
+          instrucciones: "Tomar con las comidas principales",
+        },
       ],
-      indicacionesGenerales: "Dieta para diabéticos, monitoreo de glucosa diario",
+      indicacionesGenerales:
+        "Dieta para diabéticos, monitoreo de glucosa diario",
       proximaCita: "2024-03-15",
       status: "active",
       dispensado: true,
@@ -131,7 +133,7 @@ export default function Prescriptions() {
           frecuencia: "3 veces al día",
           duracion: "7 días",
           viaAdministracion: "Oral",
-          instrucciones: "Tomar cada 8 horas con abundante agua"
+          instrucciones: "Tomar cada 8 horas con abundante agua",
         },
         {
           nombre: "Ibuprofeno",
@@ -139,20 +141,33 @@ export default function Prescriptions() {
           frecuencia: "Cada 8 horas",
           duracion: "5 días",
           viaAdministracion: "Oral",
-          instrucciones: "Solo en caso de dolor o fiebre"
-        }
+          instrucciones: "Solo en caso de dolor o fiebre",
+        },
       ],
-      indicacionesGenerales: "Reposo, abundantes líquidos, evitar cambios bruscos de temperatura",
+      indicacionesGenerales:
+        "Reposo, abundantes líquidos, evitar cambios bruscos de temperatura",
       proximaCita: "2024-01-21",
       status: "completed",
       dispensado: true,
-    }
+    },
   ];
 
   const medicamentosComunes = [
-    "Paracetamol", "Ibuprofeno", "Amoxicilina", "Omeprazol", "Losartán",
-    "Metformina", "Amlodipino", "Atorvastatina", "Levotiroxina", "Aspirina",
-    "Captopril", "Furosemida", "Clonazepam", "Diclofenaco", "Ranitidina"
+    "Paracetamol",
+    "Ibuprofeno",
+    "Amoxicilina",
+    "Omeprazol",
+    "Losartán",
+    "Metformina",
+    "Amlodipino",
+    "Atorvastatina",
+    "Levotiroxina",
+    "Aspirina",
+    "Captopril",
+    "Furosemida",
+    "Clonazepam",
+    "Diclofenaco",
+    "Ranitidina",
   ];
 
   const pacientesSugeridos = [
@@ -164,39 +179,46 @@ export default function Prescriptions() {
   ];
 
   const handleInputChange = (field: string, value: any) => {
-    setNewPrescription(prev => ({
+    setNewPrescription((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
-  const handleMedicamentoChange = (index: number, field: string, value: string) => {
-    setNewPrescription(prev => ({
+  const handleMedicamentoChange = (
+    index: number,
+    field: string,
+    value: string,
+  ) => {
+    setNewPrescription((prev) => ({
       ...prev,
-      medicamentos: prev.medicamentos.map((med, i) => 
-        i === index ? { ...med, [field]: value } : med
-      )
+      medicamentos: prev.medicamentos.map((med, i) =>
+        i === index ? { ...med, [field]: value } : med,
+      ),
     }));
   };
 
   const addMedicamento = () => {
-    setNewPrescription(prev => ({
+    setNewPrescription((prev) => ({
       ...prev,
-      medicamentos: [...prev.medicamentos, {
-        nombre: "",
-        dosis: "",
-        frecuencia: "",
-        duracion: "",
-        viaAdministracion: "",
-        instrucciones: "",
-      }]
+      medicamentos: [
+        ...prev.medicamentos,
+        {
+          nombre: "",
+          dosis: "",
+          frecuencia: "",
+          duracion: "",
+          viaAdministracion: "",
+          instrucciones: "",
+        },
+      ],
     }));
   };
 
   const removeMedicamento = (index: number) => {
-    setNewPrescription(prev => ({
+    setNewPrescription((prev) => ({
       ...prev,
-      medicamentos: prev.medicamentos.filter((_, i) => i !== index)
+      medicamentos: prev.medicamentos.filter((_, i) => i !== index),
     }));
   };
 
@@ -208,16 +230,18 @@ export default function Prescriptions() {
     setNewPrescription({
       pacienteId: "",
       pacienteNombre: "",
-      fecha: new Date().toISOString().split('T')[0],
+      fecha: new Date().toISOString().split("T")[0],
       diagnostico: "",
-      medicamentos: [{
-        nombre: "",
-        dosis: "",
-        frecuencia: "",
-        duracion: "",
-        viaAdministracion: "",
-        instrucciones: "",
-      }],
+      medicamentos: [
+        {
+          nombre: "",
+          dosis: "",
+          frecuencia: "",
+          duracion: "",
+          viaAdministracion: "",
+          instrucciones: "",
+        },
+      ],
       indicacionesGenerales: "",
       proximaCita: "",
       observaciones: "",
@@ -237,11 +261,15 @@ export default function Prescriptions() {
     }
   };
 
-  const filteredPrescriptions = prescriptions.filter(prescription => {
-    const matchesSearch = prescription.paciente.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         prescription.diagnostico.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         prescription.id.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesStatus = filterStatus === "all" || prescription.status === filterStatus;
+  const filteredPrescriptions = prescriptions.filter((prescription) => {
+    const matchesSearch =
+      prescription.paciente.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      prescription.diagnostico
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase()) ||
+      prescription.id.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus =
+      filterStatus === "all" || prescription.status === filterStatus;
     return matchesSearch && matchesStatus;
   });
 
@@ -275,24 +303,34 @@ export default function Prescriptions() {
                   Complete la información para generar una nueva receta médica
                 </DialogDescription>
               </DialogHeader>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Información del Paciente */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium">Información del Paciente</Label>
+                  <Label className="text-base font-medium">
+                    Información del Paciente
+                  </Label>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="pacienteNombre">Paciente</Label>
-                      <Select value={newPrescription.pacienteId} onValueChange={(value) => {
-                        const paciente = pacientesSugeridos.find(p => p.id === value);
-                        handleInputChange("pacienteId", value);
-                        handleInputChange("pacienteNombre", paciente?.nombre || "");
-                      }}>
+                      <Select
+                        value={newPrescription.pacienteId}
+                        onValueChange={(value) => {
+                          const paciente = pacientesSugeridos.find(
+                            (p) => p.id === value,
+                          );
+                          handleInputChange("pacienteId", value);
+                          handleInputChange(
+                            "pacienteNombre",
+                            paciente?.nombre || "",
+                          );
+                        }}
+                      >
                         <SelectTrigger>
                           <SelectValue placeholder="Seleccionar paciente" />
                         </SelectTrigger>
                         <SelectContent>
-                          {pacientesSugeridos.map(paciente => (
+                          {pacientesSugeridos.map((paciente) => (
                             <SelectItem key={paciente.id} value={paciente.id}>
                               {paciente.nombre} ({paciente.edad} años)
                             </SelectItem>
@@ -306,7 +344,9 @@ export default function Prescriptions() {
                         id="fecha"
                         type="date"
                         value={newPrescription.fecha}
-                        onChange={(e) => handleInputChange("fecha", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("fecha", e.target.value)
+                        }
                         required
                       />
                     </div>
@@ -316,7 +356,9 @@ export default function Prescriptions() {
                     <Input
                       id="diagnostico"
                       value={newPrescription.diagnostico}
-                      onChange={(e) => handleInputChange("diagnostico", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("diagnostico", e.target.value)
+                      }
                       placeholder="Diagnóstico principal"
                       required
                     />
@@ -326,23 +368,32 @@ export default function Prescriptions() {
                 {/* Medicamentos */}
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <Label className="text-base font-medium">Medicamentos</Label>
-                    <Button type="button" variant="outline" size="sm" onClick={addMedicamento}>
+                    <Label className="text-base font-medium">
+                      Medicamentos
+                    </Label>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={addMedicamento}
+                    >
                       <Plus className="w-4 h-4 mr-2" />
                       Agregar Medicamento
                     </Button>
                   </div>
-                  
+
                   {newPrescription.medicamentos.map((medicamento, index) => (
                     <Card key={index} className="p-4">
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
-                          <Label className="font-medium">Medicamento {index + 1}</Label>
+                          <Label className="font-medium">
+                            Medicamento {index + 1}
+                          </Label>
                           {newPrescription.medicamentos.length > 1 && (
-                            <Button 
-                              type="button" 
-                              variant="ghost" 
-                              size="sm" 
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="sm"
                               onClick={() => removeMedicamento(index)}
                               className="text-red-600 hover:text-red-700"
                             >
@@ -350,20 +401,24 @@ export default function Prescriptions() {
                             </Button>
                           )}
                         </div>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <Label>Nombre del Medicamento</Label>
-                            <Select 
-                              value={medicamento.nombre} 
-                              onValueChange={(value) => handleMedicamentoChange(index, "nombre", value)}
+                            <Select
+                              value={medicamento.nombre}
+                              onValueChange={(value) =>
+                                handleMedicamentoChange(index, "nombre", value)
+                              }
                             >
                               <SelectTrigger>
                                 <SelectValue placeholder="Seleccionar medicamento" />
                               </SelectTrigger>
                               <SelectContent>
-                                {medicamentosComunes.map(med => (
-                                  <SelectItem key={med} value={med}>{med}</SelectItem>
+                                {medicamentosComunes.map((med) => (
+                                  <SelectItem key={med} value={med}>
+                                    {med}
+                                  </SelectItem>
                                 ))}
                               </SelectContent>
                             </Select>
@@ -372,32 +427,62 @@ export default function Prescriptions() {
                             <Label>Dosis</Label>
                             <Input
                               value={medicamento.dosis}
-                              onChange={(e) => handleMedicamentoChange(index, "dosis", e.target.value)}
+                              onChange={(e) =>
+                                handleMedicamentoChange(
+                                  index,
+                                  "dosis",
+                                  e.target.value,
+                                )
+                              }
                               placeholder="ej: 500mg, 1 tableta"
                             />
                           </div>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                           <div>
                             <Label>Frecuencia</Label>
-                            <Select 
-                              value={medicamento.frecuencia} 
-                              onValueChange={(value) => handleMedicamentoChange(index, "frecuencia", value)}
+                            <Select
+                              value={medicamento.frecuencia}
+                              onValueChange={(value) =>
+                                handleMedicamentoChange(
+                                  index,
+                                  "frecuencia",
+                                  value,
+                                )
+                              }
                             >
                               <SelectTrigger>
                                 <SelectValue placeholder="Frecuencia" />
                               </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="1 vez al día">1 vez al día</SelectItem>
-                                <SelectItem value="2 veces al día">2 veces al día</SelectItem>
-                                <SelectItem value="3 veces al día">3 veces al día</SelectItem>
-                                <SelectItem value="4 veces al día">4 veces al día</SelectItem>
-                                <SelectItem value="Cada 4 horas">Cada 4 horas</SelectItem>
-                                <SelectItem value="Cada 6 horas">Cada 6 horas</SelectItem>
-                                <SelectItem value="Cada 8 horas">Cada 8 horas</SelectItem>
-                                <SelectItem value="Cada 12 horas">Cada 12 horas</SelectItem>
-                                <SelectItem value="Según necesidad">Según necesidad</SelectItem>
+                                <SelectItem value="1 vez al día">
+                                  1 vez al día
+                                </SelectItem>
+                                <SelectItem value="2 veces al día">
+                                  2 veces al día
+                                </SelectItem>
+                                <SelectItem value="3 veces al día">
+                                  3 veces al día
+                                </SelectItem>
+                                <SelectItem value="4 veces al día">
+                                  4 veces al día
+                                </SelectItem>
+                                <SelectItem value="Cada 4 horas">
+                                  Cada 4 horas
+                                </SelectItem>
+                                <SelectItem value="Cada 6 horas">
+                                  Cada 6 horas
+                                </SelectItem>
+                                <SelectItem value="Cada 8 horas">
+                                  Cada 8 horas
+                                </SelectItem>
+                                <SelectItem value="Cada 12 horas">
+                                  Cada 12 horas
+                                </SelectItem>
+                                <SelectItem value="Según necesidad">
+                                  Según necesidad
+                                </SelectItem>
                               </SelectContent>
                             </Select>
                           </div>
@@ -405,39 +490,67 @@ export default function Prescriptions() {
                             <Label>Duración</Label>
                             <Input
                               value={medicamento.duracion}
-                              onChange={(e) => handleMedicamentoChange(index, "duracion", e.target.value)}
+                              onChange={(e) =>
+                                handleMedicamentoChange(
+                                  index,
+                                  "duracion",
+                                  e.target.value,
+                                )
+                              }
                               placeholder="ej: 7 días, 1 mes"
                             />
                           </div>
                           <div>
                             <Label>Vía de Administración</Label>
-                            <Select 
-                              value={medicamento.viaAdministracion} 
-                              onValueChange={(value) => handleMedicamentoChange(index, "viaAdministracion", value)}
+                            <Select
+                              value={medicamento.viaAdministracion}
+                              onValueChange={(value) =>
+                                handleMedicamentoChange(
+                                  index,
+                                  "viaAdministracion",
+                                  value,
+                                )
+                              }
                             >
                               <SelectTrigger>
                                 <SelectValue placeholder="Vía" />
                               </SelectTrigger>
                               <SelectContent>
                                 <SelectItem value="Oral">Oral</SelectItem>
-                                <SelectItem value="Sublingual">Sublingual</SelectItem>
+                                <SelectItem value="Sublingual">
+                                  Sublingual
+                                </SelectItem>
                                 <SelectItem value="Tópica">Tópica</SelectItem>
-                                <SelectItem value="Inhalada">Inhalada</SelectItem>
-                                <SelectItem value="Oftálmica">Oftálmica</SelectItem>
+                                <SelectItem value="Inhalada">
+                                  Inhalada
+                                </SelectItem>
+                                <SelectItem value="Oftálmica">
+                                  Oftálmica
+                                </SelectItem>
                                 <SelectItem value="Ótica">Ótica</SelectItem>
                                 <SelectItem value="Rectal">Rectal</SelectItem>
-                                <SelectItem value="Intramuscular">Intramuscular</SelectItem>
-                                <SelectItem value="Intravenosa">Intravenosa</SelectItem>
+                                <SelectItem value="Intramuscular">
+                                  Intramuscular
+                                </SelectItem>
+                                <SelectItem value="Intravenosa">
+                                  Intravenosa
+                                </SelectItem>
                               </SelectContent>
                             </Select>
                           </div>
                         </div>
-                        
+
                         <div>
                           <Label>Instrucciones Especiales</Label>
                           <Textarea
                             value={medicamento.instrucciones}
-                            onChange={(e) => handleMedicamentoChange(index, "instrucciones", e.target.value)}
+                            onChange={(e) =>
+                              handleMedicamentoChange(
+                                index,
+                                "instrucciones",
+                                e.target.value,
+                              )
+                            }
                             placeholder="Instrucciones específicas para este medicamento"
                             rows={2}
                           />
@@ -449,10 +562,14 @@ export default function Prescriptions() {
 
                 {/* Indicaciones Generales */}
                 <div className="space-y-4">
-                  <Label className="text-base font-medium">Indicaciones Generales</Label>
+                  <Label className="text-base font-medium">
+                    Indicaciones Generales
+                  </Label>
                   <Textarea
                     value={newPrescription.indicacionesGenerales}
-                    onChange={(e) => handleInputChange("indicacionesGenerales", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("indicacionesGenerales", e.target.value)
+                    }
                     placeholder="Recomendaciones generales, cuidados, dieta, etc."
                     rows={3}
                   />
@@ -466,28 +583,41 @@ export default function Prescriptions() {
                       id="proximaCita"
                       type="date"
                       value={newPrescription.proximaCita}
-                      onChange={(e) => handleInputChange("proximaCita", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("proximaCita", e.target.value)
+                      }
                     />
                   </div>
                 </div>
 
                 {/* Observaciones */}
                 <div>
-                  <Label htmlFor="observaciones">Observaciones Adicionales</Label>
+                  <Label htmlFor="observaciones">
+                    Observaciones Adicionales
+                  </Label>
                   <Textarea
                     id="observaciones"
                     value={newPrescription.observaciones}
-                    onChange={(e) => handleInputChange("observaciones", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("observaciones", e.target.value)
+                    }
                     placeholder="Notas adicionales para el paciente o farmaceuta"
                     rows={2}
                   />
                 </div>
 
                 <div className="flex justify-end space-x-4 pt-4 border-t">
-                  <Button type="button" variant="outline" onClick={() => setIsCreateModalOpen(false)}>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setIsCreateModalOpen(false)}
+                  >
                     Cancelar
                   </Button>
-                  <Button type="submit" className="bg-medical-blue hover:bg-medical-navy">
+                  <Button
+                    type="submit"
+                    className="bg-medical-blue hover:bg-medical-navy"
+                  >
                     <FileText className="w-4 h-4 mr-2" />
                     Crear Receta
                   </Button>
@@ -588,12 +718,17 @@ export default function Prescriptions() {
                             Receta #{prescription.id}
                           </h3>
                           <p className="text-sm text-gray-600">
-                            {new Date(prescription.fecha).toLocaleDateString('es-ES')}
+                            {new Date(prescription.fecha).toLocaleDateString(
+                              "es-ES",
+                            )}
                           </p>
                         </div>
                         <Badge className={getStatusColor(prescription.status)}>
-                          {prescription.status === 'active' ? 'Activa' : 
-                           prescription.status === 'completed' ? 'Completada' : 'Expirada'}
+                          {prescription.status === "active"
+                            ? "Activa"
+                            : prescription.status === "completed"
+                              ? "Completada"
+                              : "Expirada"}
                         </Badge>
                         {prescription.dispensado && (
                           <Badge className="bg-blue-100 text-blue-800 border-blue-200">
@@ -601,11 +736,13 @@ export default function Prescriptions() {
                           </Badge>
                         )}
                       </div>
-                      
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <div className="flex items-center space-x-2 text-sm">
                           <User className="w-4 h-4 text-gray-500" />
-                          <span>{prescription.paciente} ({prescription.edad} años)</span>
+                          <span>
+                            {prescription.paciente} ({prescription.edad} años)
+                          </span>
                         </div>
                         <div className="flex items-center space-x-2 text-sm">
                           <AlertTriangle className="w-4 h-4 text-gray-500" />
@@ -614,13 +751,17 @@ export default function Prescriptions() {
                       </div>
 
                       <div className="space-y-2 mb-4">
-                        <Label className="text-sm font-medium text-gray-700">Medicamentos:</Label>
+                        <Label className="text-sm font-medium text-gray-700">
+                          Medicamentos:
+                        </Label>
                         {prescription.medicamentos.map((med, index) => (
                           <div key={index} className="bg-gray-50 p-3 rounded">
                             <div className="flex items-start space-x-2 mb-2">
                               <Pill className="w-4 h-4 text-medical-brown mt-0.5 flex-shrink-0" />
                               <div className="flex-1 min-w-0">
-                                <span className="font-medium text-sm block">{med.nombre}</span>
+                                <span className="font-medium text-sm block">
+                                  {med.nombre}
+                                </span>
                                 <div className="text-xs text-gray-600 mt-1 space-y-1">
                                   <div>Dosis: {med.dosis}</div>
                                   <div>Frecuencia: {med.frecuencia}</div>
@@ -634,29 +775,50 @@ export default function Prescriptions() {
 
                       {prescription.indicacionesGenerales && (
                         <div className="mb-4">
-                          <Label className="text-sm font-medium text-gray-700">Indicaciones:</Label>
-                          <p className="text-sm text-gray-600 mt-1">{prescription.indicacionesGenerales}</p>
+                          <Label className="text-sm font-medium text-gray-700">
+                            Indicaciones:
+                          </Label>
+                          <p className="text-sm text-gray-600 mt-1">
+                            {prescription.indicacionesGenerales}
+                          </p>
                         </div>
                       )}
 
                       {prescription.proximaCita && (
                         <div className="flex items-center space-x-2 text-sm text-gray-600">
                           <Calendar className="w-4 h-4" />
-                          <span>Próxima cita: {new Date(prescription.proximaCita).toLocaleDateString('es-ES')}</span>
+                          <span>
+                            Próxima cita:{" "}
+                            {new Date(
+                              prescription.proximaCita,
+                            ).toLocaleDateString("es-ES")}
+                          </span>
                         </div>
                       )}
                     </div>
-                    
+
                     <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
-                      <Button variant="outline" size="sm" className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white flex-1 sm:flex-none">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white flex-1 sm:flex-none"
+                      >
                         <Printer className="w-4 h-4 mr-2" />
                         Imprimir
                       </Button>
-                      <Button variant="outline" size="sm" className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white flex-1 sm:flex-none">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white flex-1 sm:flex-none"
+                      >
                         <Download className="w-4 h-4 mr-2" />
                         Descargar
                       </Button>
-                      <Button variant="outline" size="sm" className="border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white flex-1 sm:flex-none">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white flex-1 sm:flex-none"
+                      >
                         <Edit className="w-4 h-4 mr-2" />
                         Editar
                       </Button>

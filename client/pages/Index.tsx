@@ -144,7 +144,9 @@ export default function Index() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-medical-slate">Panel Principal</h1>
+            <h1 className="text-3xl font-bold text-medical-slate">
+              Panel Principal
+            </h1>
             <p className="text-gray-600 mt-1">
               Bienvenido de nuevo, Dr. Morales. Resumen de actividades del día.
             </p>
@@ -261,7 +263,9 @@ export default function Index() {
                 <CardTitle className="text-medical-slate">
                   Pacientes recientes
                 </CardTitle>
-                <CardDescription>Últimas actividades de pacientes</CardDescription>
+                <CardDescription>
+                  Últimas actividades de pacientes
+                </CardDescription>
               </div>
               <Link to="/patients">
                 <Button

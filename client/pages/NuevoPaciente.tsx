@@ -74,9 +74,9 @@ export default function NuevoPaciente() {
   });
 
   const handleInputChange = (field: string, value: any) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -117,9 +117,7 @@ export default function NuevoPaciente() {
                 <User className="w-5 h-5 mr-2" />
                 Información Personal
               </CardTitle>
-              <CardDescription>
-                Datos básicos del paciente
-              </CardDescription>
+              <CardDescription>Datos básicos del paciente</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -128,7 +126,9 @@ export default function NuevoPaciente() {
                   <Input
                     id="nombres"
                     value={formData.nombres}
-                    onChange={(e) => handleInputChange("nombres", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("nombres", e.target.value)
+                    }
                     placeholder="Ingrese los nombres"
                     required
                   />
@@ -138,7 +138,9 @@ export default function NuevoPaciente() {
                   <Input
                     id="apellidos"
                     value={formData.apellidos}
-                    onChange={(e) => handleInputChange("apellidos", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("apellidos", e.target.value)
+                    }
                     placeholder="Ingrese los apellidos"
                     required
                   />
@@ -151,13 +153,20 @@ export default function NuevoPaciente() {
                     id="fechaNacimiento"
                     type="date"
                     value={formData.fechaNacimiento}
-                    onChange={(e) => handleInputChange("fechaNacimiento", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("fechaNacimiento", e.target.value)
+                    }
                     required
                   />
                 </div>
                 <div>
                   <Label htmlFor="genero">Género *</Label>
-                  <Select value={formData.genero} onValueChange={(value) => handleInputChange("genero", value)}>
+                  <Select
+                    value={formData.genero}
+                    onValueChange={(value) =>
+                      handleInputChange("genero", value)
+                    }
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Seleccionar género" />
                     </SelectTrigger>
@@ -170,7 +179,12 @@ export default function NuevoPaciente() {
                 </div>
                 <div>
                   <Label htmlFor="estadoCivil">Estado Civil</Label>
-                  <Select value={formData.estadoCivil} onValueChange={(value) => handleInputChange("estadoCivil", value)}>
+                  <Select
+                    value={formData.estadoCivil}
+                    onValueChange={(value) =>
+                      handleInputChange("estadoCivil", value)
+                    }
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Seleccionar estado civil" />
                     </SelectTrigger>
@@ -189,7 +203,9 @@ export default function NuevoPaciente() {
                 <Input
                   id="ocupacion"
                   value={formData.ocupacion}
-                  onChange={(e) => handleInputChange("ocupacion", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("ocupacion", e.target.value)
+                  }
                   placeholder="Profesión u ocupación del paciente"
                 />
               </div>
@@ -203,9 +219,7 @@ export default function NuevoPaciente() {
                 <Phone className="w-5 h-5 mr-2" />
                 Información de Contacto
               </CardTitle>
-              <CardDescription>
-                Datos de contacto del paciente
-              </CardDescription>
+              <CardDescription>Datos de contacto del paciente</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -214,7 +228,9 @@ export default function NuevoPaciente() {
                   <Input
                     id="telefono"
                     value={formData.telefono}
-                    onChange={(e) => handleInputChange("telefono", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("telefono", e.target.value)
+                    }
                     placeholder="(000) 000-0000"
                   />
                 </div>
@@ -223,7 +239,9 @@ export default function NuevoPaciente() {
                   <Input
                     id="celular"
                     value={formData.celular}
-                    onChange={(e) => handleInputChange("celular", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("celular", e.target.value)
+                    }
                     placeholder="(000) 000-0000"
                     required
                   />
@@ -244,7 +262,9 @@ export default function NuevoPaciente() {
                 <Input
                   id="direccion"
                   value={formData.direccion}
-                  onChange={(e) => handleInputChange("direccion", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("direccion", e.target.value)
+                  }
                   placeholder="Calle, número, colonia"
                   required
                 />
@@ -255,7 +275,9 @@ export default function NuevoPaciente() {
                   <Input
                     id="ciudad"
                     value={formData.ciudad}
-                    onChange={(e) => handleInputChange("ciudad", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("ciudad", e.target.value)
+                    }
                     placeholder="Ciudad"
                     required
                   />
@@ -265,7 +287,9 @@ export default function NuevoPaciente() {
                   <Input
                     id="codigoPostal"
                     value={formData.codigoPostal}
-                    onChange={(e) => handleInputChange("codigoPostal", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("codigoPostal", e.target.value)
+                    }
                     placeholder="00000"
                   />
                 </div>
@@ -291,14 +315,21 @@ export default function NuevoPaciente() {
                   <Input
                     id="nombreEmergencia"
                     value={formData.nombreEmergencia}
-                    onChange={(e) => handleInputChange("nombreEmergencia", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("nombreEmergencia", e.target.value)
+                    }
                     placeholder="Nombre del contacto de emergencia"
                     required
                   />
                 </div>
                 <div>
                   <Label htmlFor="relacionEmergencia">Relación *</Label>
-                  <Select value={formData.relacionEmergencia} onValueChange={(value) => handleInputChange("relacionEmergencia", value)}>
+                  <Select
+                    value={formData.relacionEmergencia}
+                    onValueChange={(value) =>
+                      handleInputChange("relacionEmergencia", value)
+                    }
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Seleccionar relación" />
                     </SelectTrigger>
@@ -319,7 +350,9 @@ export default function NuevoPaciente() {
                 <Input
                   id="telefonoEmergencia"
                   value={formData.telefonoEmergencia}
-                  onChange={(e) => handleInputChange("telefonoEmergencia", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("telefonoEmergencia", e.target.value)
+                  }
                   placeholder="(000) 000-0000"
                   required
                 />
@@ -341,7 +374,12 @@ export default function NuevoPaciente() {
             <CardContent className="space-y-4">
               <div>
                 <Label htmlFor="tipoSangre">Tipo de Sangre</Label>
-                <Select value={formData.tipoSangre} onValueChange={(value) => handleInputChange("tipoSangre", value)}>
+                <Select
+                  value={formData.tipoSangre}
+                  onValueChange={(value) =>
+                    handleInputChange("tipoSangre", value)
+                  }
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Seleccionar tipo de sangre" />
                   </SelectTrigger>
@@ -362,27 +400,37 @@ export default function NuevoPaciente() {
                 <Textarea
                   id="alergias"
                   value={formData.alergias}
-                  onChange={(e) => handleInputChange("alergias", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("alergias", e.target.value)
+                  }
                   placeholder="Describir alergias conocidas (medicamentos, alimentos, etc.)"
                   rows={3}
                 />
               </div>
               <div>
-                <Label htmlFor="medicamentosActuales">Medicamentos Actuales</Label>
+                <Label htmlFor="medicamentosActuales">
+                  Medicamentos Actuales
+                </Label>
                 <Textarea
                   id="medicamentosActuales"
                   value={formData.medicamentosActuales}
-                  onChange={(e) => handleInputChange("medicamentosActuales", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("medicamentosActuales", e.target.value)
+                  }
                   placeholder="Listar medicamentos que toma actualmente"
                   rows={3}
                 />
               </div>
               <div>
-                <Label htmlFor="enfermedadesCronicas">Enfermedades Crónicas</Label>
+                <Label htmlFor="enfermedadesCronicas">
+                  Enfermedades Crónicas
+                </Label>
                 <Textarea
                   id="enfermedadesCronicas"
                   value={formData.enfermedadesCronicas}
-                  onChange={(e) => handleInputChange("enfermedadesCronicas", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("enfermedadesCronicas", e.target.value)
+                  }
                   placeholder="Diabetes, hipertensión, asma, etc."
                   rows={3}
                 />
@@ -392,17 +440,26 @@ export default function NuevoPaciente() {
                 <Textarea
                   id="cirugiasPrevias"
                   value={formData.cirugiasPrevias}
-                  onChange={(e) => handleInputChange("cirugiasPrevias", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("cirugiasPrevias", e.target.value)
+                  }
                   placeholder="Describir cirugías anteriores y fechas aproximadas"
                   rows={3}
                 />
               </div>
               <div>
-                <Label htmlFor="antecedentesHeredofamiliares">Antecedentes Heredofamiliares</Label>
+                <Label htmlFor="antecedentesHeredofamiliares">
+                  Antecedentes Heredofamiliares
+                </Label>
                 <Textarea
                   id="antecedentesHeredofamiliares"
                   value={formData.antecedentesHeredofamiliares}
-                  onChange={(e) => handleInputChange("antecedentesHeredofamiliares", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange(
+                      "antecedentesHeredofamiliares",
+                      e.target.value,
+                    )
+                  }
                   placeholder="Enfermedades en familiares directos"
                   rows={3}
                 />
@@ -424,7 +481,11 @@ export default function NuevoPaciente() {
             <CardContent className="space-y-6">
               <div>
                 <Label className="text-base font-medium">¿Fuma?</Label>
-                <RadioGroup value={formData.fuma} onValueChange={(value) => handleInputChange("fuma", value)} className="mt-2">
+                <RadioGroup
+                  value={formData.fuma}
+                  onValueChange={(value) => handleInputChange("fuma", value)}
+                  className="mt-2"
+                >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="no" id="fuma-no" />
                     <Label htmlFor="fuma-no">No</Label>
@@ -440,8 +501,16 @@ export default function NuevoPaciente() {
                 </RadioGroup>
               </div>
               <div>
-                <Label className="text-base font-medium">¿Consume alcohol?</Label>
-                <RadioGroup value={formData.bebeAlcohol} onValueChange={(value) => handleInputChange("bebeAlcohol", value)} className="mt-2">
+                <Label className="text-base font-medium">
+                  ¿Consume alcohol?
+                </Label>
+                <RadioGroup
+                  value={formData.bebeAlcohol}
+                  onValueChange={(value) =>
+                    handleInputChange("bebeAlcohol", value)
+                  }
+                  className="mt-2"
+                >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="no" id="alcohol-no" />
                     <Label htmlFor="alcohol-no">No</Label>
@@ -461,23 +530,40 @@ export default function NuevoPaciente() {
                 </RadioGroup>
               </div>
               <div>
-                <Label className="text-base font-medium">¿Realiza ejercicio?</Label>
-                <RadioGroup value={formData.ejercicio} onValueChange={(value) => handleInputChange("ejercicio", value)} className="mt-2">
+                <Label className="text-base font-medium">
+                  ¿Realiza ejercicio?
+                </Label>
+                <RadioGroup
+                  value={formData.ejercicio}
+                  onValueChange={(value) =>
+                    handleInputChange("ejercicio", value)
+                  }
+                  className="mt-2"
+                >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="no" id="ejercicio-no" />
                     <Label htmlFor="ejercicio-no">No</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="poco" id="ejercicio-poco" />
-                    <Label htmlFor="ejercicio-poco">Poco (1-2 veces por semana)</Label>
+                    <Label htmlFor="ejercicio-poco">
+                      Poco (1-2 veces por semana)
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="moderado" id="ejercicio-moderado" />
-                    <Label htmlFor="ejercicio-moderado">Moderado (3-4 veces por semana)</Label>
+                    <Label htmlFor="ejercicio-moderado">
+                      Moderado (3-4 veces por semana)
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="frecuente" id="ejercicio-frecuente" />
-                    <Label htmlFor="ejercicio-frecuente">Frecuente (5+ veces por semana)</Label>
+                    <RadioGroupItem
+                      value="frecuente"
+                      id="ejercicio-frecuente"
+                    />
+                    <Label htmlFor="ejercicio-frecuente">
+                      Frecuente (5+ veces por semana)
+                    </Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -500,9 +586,13 @@ export default function NuevoPaciente() {
                 <Checkbox
                   id="tieneSeguro"
                   checked={formData.tieneSeguro}
-                  onCheckedChange={(checked) => handleInputChange("tieneSeguro", checked)}
+                  onCheckedChange={(checked) =>
+                    handleInputChange("tieneSeguro", checked)
+                  }
                 />
-                <Label htmlFor="tieneSeguro">El paciente tiene seguro médico</Label>
+                <Label htmlFor="tieneSeguro">
+                  El paciente tiene seguro médico
+                </Label>
               </div>
               {formData.tieneSeguro && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -511,7 +601,9 @@ export default function NuevoPaciente() {
                     <Input
                       id="compañiaSeguro"
                       value={formData.compañiaSeguro}
-                      onChange={(e) => handleInputChange("compañiaSeguro", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("compañiaSeguro", e.target.value)
+                      }
                       placeholder="Nombre de la aseguradora"
                     />
                   </div>
@@ -520,7 +612,9 @@ export default function NuevoPaciente() {
                     <Input
                       id="numeroPoliza"
                       value={formData.numeroPoliza}
-                      onChange={(e) => handleInputChange("numeroPoliza", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("numeroPoliza", e.target.value)
+                      }
                       placeholder="Número de póliza o ID"
                     />
                   </div>
@@ -544,7 +638,9 @@ export default function NuevoPaciente() {
               <Textarea
                 id="observaciones"
                 value={formData.observaciones}
-                onChange={(e) => handleInputChange("observaciones", e.target.value)}
+                onChange={(e) =>
+                  handleInputChange("observaciones", e.target.value)
+                }
                 placeholder="Cualquier información adicional relevante sobre el paciente..."
                 rows={4}
               />
@@ -554,11 +650,12 @@ export default function NuevoPaciente() {
           {/* Botones de Acción */}
           <div className="flex justify-end space-x-4">
             <Link to="/patients">
-              <Button variant="outline">
-                Cancelar
-              </Button>
+              <Button variant="outline">Cancelar</Button>
             </Link>
-            <Button type="submit" className="bg-medical-blue hover:bg-medical-navy">
+            <Button
+              type="submit"
+              className="bg-medical-blue hover:bg-medical-navy"
+            >
               <Save className="w-4 h-4 mr-2" />
               Registrar Paciente
             </Button>
