@@ -27,10 +27,12 @@ export default function Layout({ children }: LayoutProps) {
   const { user, logout } = useAuth();
 
   const navigation = [
-    { name: "Dashboard", href: "/", icon: Activity },
+    { name: "Panel Principal", href: "/", icon: Activity },
     { name: "Pacientes", href: "/patients", icon: Users },
-    { name: "Citas médicas", href: "/appointments", icon: Calendar },
+    { name: "Citas Médicas", href: "/appointments", icon: Calendar },
     { name: "Recetas", href: "/prescriptions", icon: FileText },
+    { name: "Nuevo Paciente", href: "/nuevo-paciente", icon: Users },
+    { name: "Programar Cita", href: "/programar-cita", icon: Calendar },
   ];
 
   const isActive = (href: string) => {
@@ -112,7 +114,7 @@ export default function Layout({ children }: LayoutProps) {
                   {user?.name || "Dr. Sarah Johnson"}
                 </p>
                 <p className="text-xs text-gray-500 truncate">
-                  {user?.specialty || "General Practitioner"}
+                  {user?.specialty || "Médico General"}
                 </p>
               </div>
             </div>
@@ -121,7 +123,7 @@ export default function Layout({ children }: LayoutProps) {
               size="sm"
               onClick={logout}
               className="text-gray-500 hover:text-red-600 hover:bg-red-50"
-              title="Logout"
+              title="Cerrar Sesión"
             >
               <LogOut className="w-4 h-4" />
             </Button>
@@ -147,7 +149,7 @@ export default function Layout({ children }: LayoutProps) {
                 <Search className="w-4 h-4 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search patients, appointments..."
+                  placeholder="Buscar pacientes, citas..."
                   className="bg-transparent border-none outline-none flex-1 text-sm"
                 />
               </div>
