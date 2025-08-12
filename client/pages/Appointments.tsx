@@ -282,28 +282,28 @@ export default function Appointments() {
                         )}
                       </div>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
                       {appointment.status === "pending" && (
                         <>
                           <Button
                             size="sm"
-                            className="bg-green-600 hover:bg-green-700"
+                            className="bg-green-600 hover:bg-green-700 flex-1 sm:flex-none"
                           >
                             Confirmar
                           </Button>
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white"
+                            className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white flex-1 sm:flex-none"
                           >
                             Cancelar
                           </Button>
                         </>
                       )}
-                      {appointment.status === "confirmed" && (
+                      {appointment.status === "confirmada" && (
                         <Button
                           size="sm"
-                          className="bg-medical-blue hover:bg-medical-navy"
+                          className="bg-medical-blue hover:bg-medical-navy flex-1 sm:flex-none"
                         >
                           Iniciar Sesión
                         </Button>
@@ -311,7 +311,7 @@ export default function Appointments() {
                       {appointment.status === "in-progress" && (
                         <Button
                           size="sm"
-                          className="bg-green-600 hover:bg-green-700"
+                          className="bg-green-600 hover:bg-green-700 flex-1 sm:flex-none"
                         >
                           Completar
                         </Button>
@@ -319,11 +319,11 @@ export default function Appointments() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white"
+                        className="border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white flex-1 sm:flex-none"
                       >
                         Reprogramar
                       </Button>
-                      <Button variant="ghost" size="sm">
+                      <Button variant="ghost" size="sm" className="sm:ml-auto">
                         <MoreHorizontal className="w-4 h-4" />
                       </Button>
                     </div>
