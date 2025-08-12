@@ -57,7 +57,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       };
 
       setUser(userData);
-      localStorage.setItem("medicare_user", JSON.stringify(userData));
+      localStorage.setItem("mediunify_user", JSON.stringify(userData));
       setIsLoading(false);
       return true;
     }
