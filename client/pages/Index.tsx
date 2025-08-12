@@ -143,23 +143,27 @@ export default function Index() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-medical-slate">Dashboard</h1>
+            <h1 className="text-3xl font-bold text-medical-slate">Panel Principal</h1>
             <p className="text-gray-600 mt-1">
-              Bienvenido de nuevo, Dr. Morales. Esto es lo que sucede hoy.
+              Bienvenido de nuevo, Dr. Morales. Resumen de actividades del día.
             </p>
           </div>
           <div className="flex space-x-3 mt-4 sm:mt-0">
-            <Button className="bg-medical-blue hover:bg-medical-navy">
-              <Plus className="w-4 h-4 mr-2" />
-              Nuevo Paciente
-            </Button>
-            <Button
-              variant="outline"
-              className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white"
-            >
-              <Calendar className="w-4 h-4 mr-2" />
-              Programar
-            </Button>
+            <Link to="/nuevo-paciente">
+              <Button className="bg-medical-blue hover:bg-medical-navy">
+                <Plus className="w-4 h-4 mr-2" />
+                Nuevo Paciente
+              </Button>
+            </Link>
+            <Link to="/programar-cita">
+              <Button
+                variant="outline"
+                className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white"
+              >
+                <Calendar className="w-4 h-4 mr-2" />
+                Programar Cita
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -317,28 +321,43 @@ export default function Index() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Button
-                variant="outline"
-                className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white"
-              >
-                <Users className="w-6 h-6" />
-                <span>Agregar nuevo paciente</span>
-              </Button>
-              <Button
-                variant="outline"
-                className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white"
-              >
-                <Calendar className="w-6 h-6" />
-                <span>Programar cita</span>
-              </Button>
-              <Button
-                variant="outline"
-                className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-slate text-medical-slate hover:bg-medical-slate hover:text-white"
-              >
-                <FileText className="w-6 h-6" />
-                <span>Escribir receta</span>
-              </Button>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link to="/nuevo-paciente">
+                <Button
+                  variant="outline"
+                  className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white w-full"
+                >
+                  <Users className="w-6 h-6" />
+                  <span>Agregar nuevo paciente</span>
+                </Button>
+              </Link>
+              <Link to="/programar-cita">
+                <Button
+                  variant="outline"
+                  className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-brown text-medical-brown hover:bg-medical-brown hover:text-white w-full"
+                >
+                  <Calendar className="w-6 h-6" />
+                  <span>Programar cita</span>
+                </Button>
+              </Link>
+              <Link to="/prescriptions">
+                <Button
+                  variant="outline"
+                  className="h-16 flex flex-col items-center justify-center space-y-2 border-medical-slate text-medical-slate hover:bg-medical-slate hover:text-white w-full"
+                >
+                  <FileText className="w-6 h-6" />
+                  <span>Escribir receta</span>
+                </Button>
+              </Link>
+              <Link to="/historial-medico">
+                <Button
+                  variant="outline"
+                  className="h-16 flex flex-col items-center justify-center space-y-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white w-full"
+                >
+                  <Activity className="w-6 h-6" />
+                  <span>Ver historial médico</span>
+                </Button>
+              </Link>
             </div>
           </CardContent>
         </Card>
