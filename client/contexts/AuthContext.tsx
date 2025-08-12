@@ -33,7 +33,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     // Check if user is already logged in (from localStorage)
-    const savedUser = localStorage.getItem("medicare_user");
+    const savedUser = localStorage.getItem("mediunify_user");
     if (savedUser) {
       setUser(JSON.parse(savedUser));
     }
