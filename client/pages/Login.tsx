@@ -127,7 +127,7 @@ export default function Login() {
               </p>
               <div className="text-sm text-gray-600 space-y-1">
                 <p>
-                  <strong>Correo:</strong> doctor@medicare.com
+                  <strong>Correo:</strong> doctor@mediunify.com
                 </p>
                 <p>
                   <strong>Contraseña:</strong> password123
